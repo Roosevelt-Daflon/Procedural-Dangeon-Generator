@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MapGenerator
 {
-	//Funções geradora do mapa
+	//Função geradora do mapa.
 	public List<Room> GenMap(int roomMaxAmount)
 	{
 		
@@ -16,13 +16,14 @@ public class MapGenerator
 		while (roomMaxAmount > map.Count && errorPreviner <= 100)
 		{
 			int indexSide = Random.Range(0, 4);
-			//criar sala no mapa
+			//cria sala no mapa
 			CreteRoom(indexSide, ref index, in map,ref errorPreviner);
 		}
 
 		return map;
 	}
-
+	
+	//criar sala
 	void CreteRoom(int indexSide, ref Vector2 index, in List<Room> map, ref int errorPreviner)
 	{
 		int[] BaseTypesList = new int[4] { 1, 2, 8, 4 };
@@ -47,7 +48,7 @@ public class MapGenerator
 		}
 	}
 
-	//função para pegar uma sala apartir de sua posição no mapa
+	//Função para pegar uma sala a partir de sua posição no mapa.
 	Room GetRoom(Vector2 index, List<Room> map)
 	{
 		foreach (var item in map)
